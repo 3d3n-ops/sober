@@ -51,10 +51,4 @@ Sober currently blocks the following AI websites:
 
 If you like this product, please give this extension a ⭐️ on GitHub and five stars on Chrome Web Store.
 
-## License
-
-[Add your license information here]
-
----
-
 Thank you and stay Sober! ✨ 
