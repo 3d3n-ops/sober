@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Sober</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                text-align: center;
+                margin-top: 100px;
+                background-color: #000000;
+                color: #ffffff;
+            }
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 30px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            h1 {
+                color:  #000000;
+                font-size: 28px;
+            }
+            p {
+                color:  #000000;
+            }
+            .message {
+                font-size: 24px;
+                font-weight: bold;
+                margin: 30px 0;
+                color: #333;
+            }
+            .button {
+                background-color: #ff0c0c;
+                color: white;
+                border: none;
+                font-size: 16px;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                margin-top: 20px;
+            }
+            .button:hover {
+                background-color: #d32f2f;
+            }
+            input {
+                width: 80%;
+                padding: 10px;
+                margin: 20px auto;
+                font-size: 16px;
+            }
+            #confirmInput {
+                display: none;
+            }
+            #submitOverride {
+                display: none;
+                margin: 10px auto;
+            }
+            #confirmText {
+                font-size: 14px;
+                color: #666;
+            }
+            .blocked-site {
+                font-weight: bold;
+                color: #ff0c0c;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Sober✨</h1>
+            <p class="message">
+                Bro really bout to use AI. 🔒LOCK IN AND THINK FOR YOURSELF BRO 😭😭😭!!! OML IM GONNA CRASHOUT YOU CANT KEEP DOING THIS BRO
+            </p>
+            <p>You were trying to access: <span id="blockedUrl" class="blocked-site">an AI site</span></p>
+            <button id="overrideBtn" class="button">Override Block</button>
+            <div id="overrideSection" style="display: none;">
+                <p id="confirmText">Type "I am about to let AI think for me" to continue</p>
+                <input type="text" id="confirmInput" placeholder="Type confirmation phrase here">
+                <button id="submitOverride" class="button">Submit</button>
+            </div>
+            <script src="blocked.js"></script>
+        </div>
+    </body>
+</html>
