@@ -67,6 +67,12 @@
                 font-weight: bold;
                 color: #ff0c0c;
             }
+            .exception-note {
+                font-size: 12px;
+                font-style: italic;
+                color: #666;
+                margin-top: 5px;
+            }
         </style>
     </head>
     <body>
@@ -78,9 +84,10 @@
             <p>You were trying to access: <span id="blockedUrl" class="blocked-site">an AI site</span></p>
             <button id="overrideBtn" class="button">Override Block</button>
             <div id="overrideSection" style="display: none;">
-                <p id="confirmText">Type "I am about to let AI think for me" to continue</p>
+                <p id="confirmText">Type "i am about to let AI think for me" to continue</p>
                 <input type="text" id="confirmInput" placeholder="Type confirmation phrase here">
                 <button id="submitOverride" class="button">Submit</button>
+                <p class="exception-note">This will grant access to this site for 10 minutes</p>
             </div>
             <script src="blocked.js"></script>
         </div>

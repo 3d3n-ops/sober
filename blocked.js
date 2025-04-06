@@ -14,34 +14,44 @@ document.addEventListener('DOMContentLoaded', function() {
         const hostname = new URL(blockedUrl).hostname;
         blockedUrlElement.textContent = hostname;
     }
-
+    
     overrideBtn.addEventListener('click', function() {
-        overrideSection.style.display = 'block';
-        confirmInput.style.display = 'block';
-        overrideBtn.style.display = 'none';
+      overrideSection.style.display = 'block';
+      confirmInput.style.display = 'block';
+      overrideBtn.style.display = 'none';
     });
-
+    
     confirmInput.addEventListener('input', function() {
-        if (confirmInput.value.toLowerCase() === 'i am about to let ai think for me') {
-            submitOverride.style.display = 'block';
-        } else {
-            submitOverride.style.display = 'none';
-        }
+      if (confirmInput.value.toLowerCase() === 'i am about to let ai think for me') {
+        submitOverride.style.display = 'block';
+      } else {
+        submitOverride.style.display = 'none';
+      }
     });
-
+    
     submitOverride.addEventListener('click', function() {
-        if (confirmInput.value.toLowerCase() === 'i am about to let ai think for me') {
-            overrideSection.style.display = 'none';
-            confirmInput.style.display = 'none';
-            submitOverride.style.display = 'none';
-            overrideBtn.style.display = 'block';
+      if (confirmInput.value.toLowerCase() === 'i am about to let ai think for me') {
+        if (blockedUrl) {
+          // Store the allowed site in local storage with expiration time (10 minutes)
+          try {
+            const hostname = new URL(blockedUrl).hostname;
+            const expirationTime = Date.now() + (10 * 60 * 1000); // 10 minutes
+            const allowedSites = {};
+            allowedSites[hostname] = expirationTime;
             
-            // Navigate to the blocked URL if available, otherwise go back
-            if (blockedUrl) {
-                window.location.href = blockedUrl;
-            } else {
-                window.history.back();
-            }
+            chrome.storage.local.set({ allowedSites: allowedSites }, function() {
+              // Navigate directly to the blocked URL
+              window.location.href = blockedUrl;
+            });
+          } catch (error) {
+            console.error("Error:", error);
+            // If anything fails, just try direct navigation
+            window.location.href = blockedUrl;
+          }
+        } else {
+          // If no blocked URL is available, go back
+          window.history.back();
         }
+      }
     });
-});
+  });

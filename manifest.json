@@ -3,7 +3,7 @@
     "name": "Sober✨",
     "version": "1.0", 
     "description": "Control your vibes✨using Sober, a chrome extension that blocks access to AI models so you can focus on learning and thinking for yourself. Built for students and programmers who rely heavily on AI and want to take control of their learning. If you like this product, please give this extension a ⭐️ on GitHub and five stars on Chrome Web Store. Thank you and stay Sober! ✨",
-    "permissions": ["webNavigation", "webRequest", "webRequestBlocking"],
+    "permissions": ["webNavigation", "webRequest", "webRequestBlocking", "storage"],
     "host_permissions": [
         "*://chat.openai.com/*",
         "*://claude.ai/*",
